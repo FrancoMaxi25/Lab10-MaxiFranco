@@ -1,5 +1,5 @@
-﻿using System.Linq.Expressions;
-using Lab10_MaxiFranco.Domain.Interfaces.Repositories;
+using System.Linq.Expressions;
+using Lab10_MaxiFranco.Domain.Repositories;
 using Lab10_MaxiFranco.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 

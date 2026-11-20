@@ -1,4 +1,4 @@
-﻿using Lab10_MaxiFranco.Domain.Interfaces.Repositories;
+using Lab10_MaxiFranco.Domain.Repositories;
 using Lab10_MaxiFranco.Infrastructure.Persistence.Context;
 
 namespace Lab10_MaxiFranco.Infrastructure.Repositories;

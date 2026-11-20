@@ -1,4 +1,4 @@
-using Lab10_MaxiFranco.Domain.Interfaces.Repositories;
+using Lab10_MaxiFranco.Domain.Repositories;
 namespace Lab10_MaxiFranco.Application.UseCases.Users;
 public class DeleteUserUseCase(IUnitOfWork uow)
 {

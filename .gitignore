@@ -1,0 +1,36 @@
+﻿# Archivos de compilacion
+[Bb]in/
+[Oo]bj/
+
+# Rider y Visual Studio
+.idea/
+.vs/
+*.user
+*.suo
+
+# Archivos de publicacion
+publish/
+published/
+Lab10-Publish/
+
+# Respaldos
+Lab10_Backup_*/
+Lab10-MaxiFranco-Backup/
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos auxiliares locales
+REFACtor-LAB10.ps1
+configuracion_actual.txt
+estructura.txt
+
+# Archivos auxiliares locales
+REFACtor-LAB10.ps1
+configuracion_actual.txt
+estructura.txt

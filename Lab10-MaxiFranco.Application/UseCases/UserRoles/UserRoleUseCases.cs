@@ -1,6 +1,6 @@
 using Lab10_MaxiFranco.Application.DTOs.UserRoles;
 using Lab10_MaxiFranco.Domain.Entities;
-using Lab10_MaxiFranco.Domain.Interfaces.Repositories;
+using Lab10_MaxiFranco.Domain.Repositories;
 
 namespace Lab10_MaxiFranco.Application.UseCases.UserRoles;
 public class UserRoleUseCases(IUnitOfWork uow)

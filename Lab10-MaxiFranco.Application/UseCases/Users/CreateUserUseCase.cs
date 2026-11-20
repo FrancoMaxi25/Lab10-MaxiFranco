@@ -1,7 +1,7 @@
-﻿using Lab10_MaxiFranco.Application.DTOs.Users;
-using Lab10_MaxiFranco.Application.Interfaces.Services;
+using Lab10_MaxiFranco.Application.DTOs.Users;
+using Lab10_MaxiFranco.Application.Contracts;
 using Lab10_MaxiFranco.Domain.Entities;
-using Lab10_MaxiFranco.Domain.Interfaces.Repositories;
+using Lab10_MaxiFranco.Domain.Repositories;
 
 namespace Lab10_MaxiFranco.Application.UseCases.Users;
 

@@ -1,9 +1,9 @@
-﻿
-using Lab10_MaxiFranco.Application.Interfaces.Services;
-using Lab10_MaxiFranco.Domain.Interfaces.Repositories;
+
+using Lab10_MaxiFranco.Application.Contracts;
+using Lab10_MaxiFranco.Domain.Repositories;
 using Lab10_MaxiFranco.Infrastructure.Persistence.Context;
 using Lab10_MaxiFranco.Infrastructure.Repositories;
-using Lab10_MaxiFranco.Infrastructure.Security;
+using Lab10_MaxiFranco.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

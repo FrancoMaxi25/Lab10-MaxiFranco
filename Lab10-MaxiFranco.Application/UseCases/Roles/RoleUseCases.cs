@@ -1,6 +1,6 @@
 using Lab10_MaxiFranco.Application.DTOs.Roles;
 using Lab10_MaxiFranco.Domain.Entities;
-using Lab10_MaxiFranco.Domain.Interfaces.Repositories;
+using Lab10_MaxiFranco.Domain.Repositories;
 
 namespace Lab10_MaxiFranco.Application.UseCases.Roles;
 
