@@ -1,4 +1,5 @@
-name: .NET CI
+
+name: .NET CI CD
 
 on:
   push:
@@ -6,7 +7,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +22,7 @@ jobs:
       - name: Restaurar dependencias
         run: dotnet restore Lab10-MaxiFranco.sln
 
-      - name: Compilar soluci�n
+      - name: Compilar solución
         run: dotnet build Lab10-MaxiFranco.sln --configuration Release --no-restore
 
       - name: Publicar API
@@ -32,3 +33,36 @@ jobs:
         with:
           name: Lab10-Publish
           path: ./publish
+
+      - name: Configurar SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      - name: Preparar conexión segura
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
+
+      - name: Preparar directorio en EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+        run: |
+          ssh "$EC2_USER@$EC2_HOST" "mkdir -p /home/ubuntu/Lab10-Publish"
+
+      - name: Transferir publicación mediante SCP
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+        run: |
+          scp -r ./publish/* "$EC2_USER@$EC2_HOST:/home/ubuntu/Lab10-Publish/"
+
+      - name: Desplegar y reiniciar API
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+        run: |
+          ssh "$EC2_USER@$EC2_HOST" "sudo cp -a /home/ubuntu/Lab10-Publish/. /var/www/lab10/ && sudo systemctl restart lab10 && sudo systemctl is-active lab10"
